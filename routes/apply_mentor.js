@@ -50,6 +50,7 @@ applyMentorMiddleware.post("/", (req, res, next) => {
     if(allMentors.find((mentor) => mentor.userId === reqData.userId)){
 
         res.status(400).send("Mentor already exists. Cannot apply more than once");
+        return;
     }
     //Assuming value is okay. Store to db, with applicationStatus field added with the value "under_review"
     //Send a 200 (OK) status
