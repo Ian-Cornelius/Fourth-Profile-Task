@@ -38,7 +38,7 @@ response:   400 (Bad format) - values missing
             200 (OK) - user signed up successfully
 
 ### Applying to be a mentor
-API assumes you're signed in and have a Bearer token. (Mock token is i_am_signed_in)
+API assumes you're signed in and have a Bearer token. (Mock token is i_am_signed_in). Also, automatically assumes the course you signed up with is the one you're applying to be a mentor for.
 Route: /apply-mentor
 Method: POST
 contentType: application/json
@@ -46,7 +46,8 @@ Params: {
 
     courseCompletionCertificate: string, //effectively a url to where it has been uploaded (like a storage bucket),
     yearOfCompletion: string, 
-    calendlySchedulingLink: string
+    calendlySchedulingLink: string,
+    userId: string //unique identifier for the user
 }
 response:   400 (Bad format) - values missing
             200 (OK) - application submitted successfully
@@ -54,7 +55,7 @@ response:   400 (Bad format) - values missing
 ### Querying list of mentors
 Route: /get-mentors
 Method: GET
-response:   200 (OK) - mentors retrieved successfully
+response:   200 (OK) - approved mentors list retrieved successfully
             [
                 {
                     name: string,
