@@ -2,7 +2,6 @@
 const app = require("../app");
 const http = require("http");
 const port = "3030";
-const debug = require("debug");
 
 //set the port
 app.set("port", port)
@@ -12,5 +11,5 @@ server.listen(port);
 server.on("listening", () => {
 
     //@ts-expect-error
-    debug(`Server listening on port ${server.address().port}`);
+    console.log(`Server listening on port ${server.address().port}`);
 });
